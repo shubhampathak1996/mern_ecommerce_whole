@@ -1,0 +1,13 @@
+*,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+.bg-light {
+  background-color: #f7f3f3;
+}
+.main-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
