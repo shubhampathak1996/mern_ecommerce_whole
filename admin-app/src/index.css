@@ -16,3 +16,7 @@ code {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
