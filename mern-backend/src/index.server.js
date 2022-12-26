@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 // routes
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin/auth");
+const categoryRoutes = require("./routes/category");
 
 // mongodb connection
 // mongodb+srv://user-123:<password>@cluster0.p4fj6gd.mongodb.net/?retryWrites=true&w=majority
@@ -20,6 +21,7 @@ mongoose
 app.use(express.json());
 app.use("/api", authRoutes);
 app.use("/api", adminRoutes);
+app.use("/api", categoryRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`server running on port ${process.env.PORT}`);
