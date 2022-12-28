@@ -5,18 +5,24 @@ exports.requireSignin = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1];
     const user = jwt.verify(token, process.env.JWT_SECRET);
     req.user = user;
-    next();
+
+  } else {
+    return res.status(400).json({ message: "Authorization required" })
   }
-  return res.status(400).json({ message: "Authorization required" })
+
+  next();
 
   // jwt.verify();
 };
 exports.userMiddleware = (req, res, next) => {
-
+  if (req.user.role !== 'user') {
+    return res.status(400).json({ message: "User Access Denied" })
+  }
+  next()
 }
 exports.adminMiddleware = (req, res, next) => {
   if (req.user.role !== 'admin') {
-    return res.status(400).json({ message: "Access Denied" })
+    return res.status(400).json({ message: "admin Access Denied" })
   }
   next()
 }
